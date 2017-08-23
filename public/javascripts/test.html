@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+<script>
+    var name = prompt("Как тебя зовут?");
+    var arr = name.split(" ");
+    var g = arr[0];
+    var d = g.charAt(0);
+    name = d !== "" && d !== d.toUpperCase() ? d.toUpperCase() + g.slice(1): g;
+    if (name)
+    alert("Привет, " + g);
+</script>
+</body>
+</html>
