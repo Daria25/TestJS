@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Виселица</title>
+</head>
+<body>
+<script>
+
+    /**
+     * Created by Vitaly on 21.08.2017.
+     */
+//Выбираем случайное слово
+    var words = [
+        "программа",
+        "макака",
+        "прекрасный",
+        "оладушек",
+        "козявка"
+    ];
+    words.push("болтушкин");
+    var word = words[Math.floor(Math.random() * words.length)];
+    word = words[1];
+    // Создаем итоговый массив
+    var answerArray = [];
+    for (var i = 0; i < word.length; i++){
+        answerArray[i] = "_";
+    }
+    var attemptCount = prompt("Введите количество попыток");
+    var remainingLetters = word.length;
+    while (attemptCount < remainingLetters) {
+        alert("Количество букв больше. ВВедите еще раз количество попыток");
+        attemptCount = prompt("Введите количество попыток");
+    }
+    // Программируем игровой цикл
+    while (remainingLetters > 0 && attemptCount !== 0) {
+        //Отображение состояния игрока
+        alert(answerArray.join(" ") + "У вас осталось " + attemptCount + " попыток.");
+        // Обработка введенного ответа
+        var guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
+        if (guess === null) {
+            break;
+        } else if (guess.length !== 1) {
+            alert("Введите только одну букву");
+        } else {
+            // Обновляем состоянние игры
+            guess = guess.toLowerCase(); // приводит к нижнему регистру
+            for (var j = 0; j < word.length; j++) {
+                if (word[j] === guess && answerArray[j] === "_") {
+                    answerArray[j] = guess;
+                    remainingLetters--;
+                }
+            }
+        }
+        attemptCount--;
+        if(attemptCount === 0 && remainingLetters !== 0) {
+            alert("Вы не успели отгадать слово.");
+            break;
+        }
+    }
+    alert(answerArray.join(" "));
+    alert("Отлично! Было заданно слово " + word);
+
+    process.exit(0)
+
+</script>
+</body>
+</html>
