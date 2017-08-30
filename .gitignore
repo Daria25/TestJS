@@ -110,3 +110,5 @@ typings/
 .env
 
 
+.idea/
+public/images/
