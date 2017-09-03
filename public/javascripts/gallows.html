@@ -6,6 +6,13 @@
 </head>
 <body>
 <script>
+    function enterAttemptCount(word) {
+        var attempt;
+        while (attempt = prompt("Введите количество попыток") < word.length) {
+            alert("Количество букв больше. ВВедите еще раз количество попыток");
+        }
+        return attempt;
+    }
 
     /**
      * Created by Vitaly on 21.08.2017.
@@ -26,12 +33,13 @@
     for (var i = 0; i < word.length; i++){
         answerArray[i] = "_";
     }
-    var attemptCount = prompt("Введите количество попыток");
-    var remainingLetters = word.length;
-    while (attemptCount < remainingLetters) {
-        alert("Количество букв больше. ВВедите еще раз количество попыток");
-        attemptCount = prompt("Введите количество попыток");
-    }
+//    var attemptCount = prompt("Введите количество попыток");
+//    var remainingLetters = word.length;
+//    while (attemptCount < remainingLetters) {
+//        alert("Количество букв больше. ВВедите еще раз количество попыток");
+//        attemptCount = prompt("Введите количество попыток");
+//    }
+    var attemptCount = enterAttemptCount(word);
     // Программируем игровой цикл
     while (remainingLetters > 0 && attemptCount !== 0) {
         //Отображение состояния игрока
