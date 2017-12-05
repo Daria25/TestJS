@@ -218,7 +218,7 @@ console.log(sum(2, 9));
 var sum1 = (h, k) => h + k;
 
 var sum2 = function (h, k) {
-   return h + k;
+    return h + k;
 };
 console.log(sum2(5, 6));
 
@@ -258,7 +258,7 @@ function treeArgument(a, b, c) {
     var max = 0;
     if (a > b) {
         max = a;
-    }else if (b > c) {
+    } else if (b > c) {
         max = b
     } else {
         max = c;
@@ -278,7 +278,7 @@ var treeArgument2 = function (a, b, c) {
 console.log(treeArgument2(5, 18, 9));
 
 
-function arrayN (z, x){
+function arrayN(z, x) {
     var c = [];
     var count = 0;
     while (count !== x) {
@@ -299,6 +299,104 @@ var arrayN2 = function (z, x) {
 };
 console.log(arrayN2(56, 7));
 
+var mass = [2, 2, 32, 23, 235, 23, 5, 342, 56, 346, 45, 7, 45, 745, 7, 3, 52, 135, 2, 35, 34, 745, 7, 54, 8, 56, 62, 34, 23, 4, 235, 324, 5, 350];
+// только четные, те что делятся на 10, сумма цифр больше 7
+// function (элементМассива, текущийИндекс, самМассив) {
+//     возвращать должно булеан
+// }
+function myFilterArray(x) {
+    var sum = 0;
+    while (x !== 0) {
+        sum += x % 10;
+        x = Math.floor(x / 10);
+    }
+    return sum;
+};
+
+function seven(x) {
+    return myFilterArray(x) > 7;
+};
+
+
+var newMass = mass.filter(x => x % 2 === 0)
+    .filter(x => x % 5 === 0)
+    .filter(x => myFilterArray(x) > 7);
+console.log(newMass);
+
+console.log(myFilterArray(123));
+
+var sum = function () {
+};
+function sum() {
+
+};
+var sum = () => {
+};
+
+var x = 1;
+//
+// function myFunction(message, f) {
+//     console.log(f(message));
+// }
+
+// function smallFunction(x) {
+//     return "Hello " + x;
+// }
+//
+// // console.log(myFunction("dasha", smallFunction));
+// //
+// // console.log(smallFunction("111"));
+//
+function bigFunction(x) {
+    return x();
+}
+function two(a, b) {
+    var x = a + b;
+    console.log("Привет");
+    return x;
+}
+
+var bbb = two;
+
+
+console.log(bbb(2, 6))
+console.log("===========================");
+//
+// function nextFunction() {
+//     return "Пизда!!!"
+// }
+
+// console.log(bigFunction(smallFunction));
+// console.log(bigFunction(nextFunction));
+// console.log(bigFunction(two));
+
+function max(array) {
+    var max = array[0];
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+    return max;
+}
+console.log(max([-2, 0, 5, 0]));
+
+function find(array, a) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] === a) {
+            return i;
+        }
+    }
+    return -1;
+}
+console.log(find([2, 5, 7, 4], 2));
+
+var array2 = [1, 3, 44, 56, 7, 8, 22, 54, 457, 4, 53, 53, 4, 53, 5, 3, 53, 78, 8, 88, 7];
+var new2 = array2
+    .filter(x => x % 2 === 0)
+    .filter((x, y) => y % 2 === 0)
+    .filter((x, y, z) => z.indexof() - 1);
+console.log(new2);
 process.exit(0);
 /**
  * Created by Vitaly on 30.08.2017.
